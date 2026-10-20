@@ -25,9 +25,12 @@ jobs:
 
     - name: Install dependencies
       run: flutter pub get
+      # إذا كان مشروعك داخل مجلد فرعي ضع اسمه هنا، أو احذف السطرين القادمين إذا كان المشروع في المجلد الرئيسي مباشرة
+      working-directory: . 
 
     - name: Build APK
       run: flutter build apk --debug
+      working-directory: .
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
