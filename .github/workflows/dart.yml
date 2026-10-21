@@ -24,7 +24,11 @@ jobs:
         channel: 'stable'
 
     - name: Install dependencies
-      run: flutter pub get
+      run: flutter pub get --offline || flutter pub get
+      working-directory: app
+
+    - name: Upgrade dependencies override
+      run: flutter pub upgrade intl --major-versions
       working-directory: app
 
     - name: Build APK
